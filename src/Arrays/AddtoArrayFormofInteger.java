@@ -23,6 +23,5 @@ public class AddtoArrayFormofInteger {
             K /= 10;
         }
         return res;
-
     }
 }
