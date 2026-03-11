@@ -5,7 +5,7 @@ package String;
 public class SortingtheSentence {
     public static void main(String[] args) {
         String s1 = "is2 sentence4 This1 a3";
-
+        System.out.println(sortSentence(s1));
     }
     static String sortSentence(String s) {
         String[] arr = s.split(" ");
