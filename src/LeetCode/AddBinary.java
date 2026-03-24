@@ -43,7 +43,7 @@ public class AddBinary {
         }
 
         return sb.reverse().toString();
-//
+
 //        for (int i = a.length()-1; i >=0; i--) {
 //            for (int j = b.length()-1;j  >= 0; j--) {
 //                if(a.charAt(i) == '1' && b.charAt(j) == '1'){
