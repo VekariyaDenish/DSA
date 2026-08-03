@@ -12,14 +12,27 @@ public class FindtheDuplicateNumber {
 
     }
     static int findDuplicate(int[] nums) {
-        Arrays.sort(nums);
-
-        for (int i = 1; i < nums.length; i++) {
-            if(nums[i]==nums[i-1]){
-                return nums[i];
+        int i =0;
+        while(i<nums.length){
+            if(nums[i]!=i+1){
+                int value = nums[i]-1;
+                if(nums[i]!=nums[value]){
+                    swapping(nums,i,value);
+                }else{
+                    return nums[i];
+                }
+            }else{
+                i++;
             }
         }
         return -1;
+    }
+
+    static void swapping(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+
     }
 }
 
