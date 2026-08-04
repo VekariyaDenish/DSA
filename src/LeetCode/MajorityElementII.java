@@ -7,25 +7,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public static class MajorityElementII {
+public class MajorityElementII {
     public static void main(String[] args) {
 
-        int[] nums = {3,2,3};
+        int[] arr = {11, 33, 33, 11, 33, 11};
 
         MajorityElementII sol = new MajorityElementII();
-        List<Integer> ans = sol.majorityElement(nums);
+        List<Integer> ans = sol.check(arr);
 
         System.out.print("The majority elements are: ");
         for (int it : ans) {
             System.out.print(it + " ");
         }
         System.out.println();
+
     }
 
 
 
-}
-    private static List<Integer> majorityElement(int[] nums) {
+
+    private static List<Integer> check(int[] nums) {
 
         int n = nums.length;
         List<Integer> result = new ArrayList<>();
