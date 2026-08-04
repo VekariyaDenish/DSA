@@ -23,9 +23,6 @@ public class MajorityElementII {
 
     }
 
-
-
-
     private static List<Integer> check(int[] nums) {
 
         int n = nums.length;
