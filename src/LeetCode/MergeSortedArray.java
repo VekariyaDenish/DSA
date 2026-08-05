@@ -56,9 +56,6 @@ public class MergeSortedArray {
 //    }
 
 
-
-
-
         int i = m - 1;      // last element of nums1
         int j = n - 1;      // last element of nums2
         int k = m + n - 1;  // last position of nums1
