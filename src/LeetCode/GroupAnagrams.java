@@ -8,7 +8,9 @@ public class GroupAnagrams {
     public static void main(String[] args) {
         String [] s = {"eat","tea","tan","ate","nat","bat"};
 
-        System.out.println();
+        System.out.println(
+
+        );
 
     }
     static List<List<String>> groupAnagrams(String[] strs) {
