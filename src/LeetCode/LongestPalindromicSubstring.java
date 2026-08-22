@@ -1,39 +1,54 @@
 package LeetCode;
 
+
 //5. Longest Palindromic Substring
 
+import java.util.Arrays;
+
 public class LongestPalindromicSubstring {
+
+    private static int[][] t;
+
     public static void main(String[] args) {
         System.out.println(longestPalindrome("babad"));
     }
     static String longestPalindrome(String s) {
-        if (s == null || s.length() < 2) return s;
 
-        int start = 0, maxLen = 1;
-
-        for (int i = 0; i < s.length(); i++) {
-            // Odd length:  "aba"  → center at i
-            int odd  = expand(s, i, i);
-            // Even length: "abba" → center between i and i+1
-            int even = expand(s, i, i + 1);
-
-            int len = Math.max(odd, even);
-
-            if (len > maxLen) {
-                maxLen = len;
-                start = i - (len - 1) / 2;  // back-calculate start index
+            int n = s.length();
+            int maxlen = Integer.MIN_VALUE;
+            int startingIndex = 0;
+            t = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                Arrays.fill(t[i], -1);
             }
+
+            for (int i = 0; i < n; i++) {
+                for (int j = i; j < n; j++) {
+                    if (solve(s, i, j) && j - i + 1 > maxlen) {
+                        startingIndex = i;
+                        maxlen = j - i + 1;
+                    }
+                }
+            }
+
+            return s.substring(startingIndex, startingIndex + maxlen);
         }
 
-        return s.substring(start, start + maxLen);
-    }
+        static boolean solve(String s, int l, int r) {
+            if (l >= r) {
+                return true;
+            }
 
-    static int expand(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
+            if (t[l][r] != -1) {
+                return t[l][r] == 1;
+            }
+
+            if (s.charAt(l) == s.charAt(r)) {
+                t[l][r] = solve(s, l + 1, r - 1) ? 1 : 0;
+            } else {
+                t[l][r] = 0;
+            }
+
+            return t[l][r] == 1;
         }
-        // when loop exits, left & right are ONE step OUTSIDE the palindrome
-        return right - left - 1;  // actual palindrome length
-    }
 }
